@@ -1,0 +1,38 @@
+###----------Melting Temperature of spherical Nano-solid------------###
+# Formula for melting temperature of nanosolid is taken from paper "W. H. Qi; Size effect on melting temperature of nanosolid, Physica B:Condensed matter, 2005, 368;46"#
+import numpy as py
+import matplotlib.pyplot as plt
+
+# Introduction #
+
+print ('''Hello user. This code is built to calculate the melting temperature of Spherical Nanosolid ''')
+
+# Diameter of the atom #
+
+d = float (input("Atomic Diameter of nanosolid is="))
+
+# Bulk melting temperature #
+
+T = float (input("Enter value of bulk melting point of the concerned nanosolid="))
+
+# Radius of the nanoparticle#
+
+r = float (input("Enter the value of desired radius of the nanosolid= "))   
+R1 = py.arange (1, r + 0.1, 0.1)
+Diameter = R1 * d
+
+# Formula as given in the paper #
+A=(4 * d) / (2 * R1)
+R=(1 - A)          
+x = (T * R)
+print (x)
+    
+# Plotting#
+
+plt.title('''Effect of size on the Melting temperature 
+ of Spherical Nanosolid ''', fontsize='18')    
+plt.xlabel ("D (nm)", fontsize='14')
+plt.ylabel ("Melting Temperature (Kelvin)", fontsize='14')
+plt.plot(R1, x, linestyle='dashdot', color='Blue')
+plt.gca().legend(('Spherical nanosolid'), fontsize = '14', loc = 'lower right')
+plt.show()
