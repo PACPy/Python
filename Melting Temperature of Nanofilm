@@ -1,0 +1,43 @@
+###----------Melting Temperature of  Nanofilm------------###
+# Code developed to calculate melting temperature of nanofilm using formula given in paper,"W. H. Qi; Size effect on melting temperature of nanosolid, Physica B:Condensed matter, 2005, 368;46" 
+import matplotlib.pyplot as plt
+import numpy as py
+
+# Introduction #
+
+print ('''Hello user. This code is built to calculate the melting temperature of Nanofilms''')
+
+# Atomic diameter of the atoms in the material#
+
+d = float (input("Atomic diameter of the atom is= "))
+
+# Bulk melting temperature #
+
+T = float (input("Enter value of bulk melting point= "))
+
+# Height of the nanofilm #
+
+h = float (input("Enter the value of the height= "))
+Height = py.arange(1, h + 0.1, 0.1)
+H = Height * d
+
+# Function begins # 
+
+def funct ():
+    # formula as given in the paper #
+    D = (4 / 3) * (d / Height) * (1 / 2)
+    R=(1 - D) 
+    t=(T * R) 
+    print (t)
+    
+    #Plotting#
+    
+    plt.title ('''Effect of size on Melting temperature of
+        Nanofilm''', fontsize='18')
+    plt.xlabel ("h (nm)", fontsize='14')
+    plt.ylabel ("Melting temperature (Kelvin)", fontsize='14')
+    plt.plot (Height, t, linestyle='dashdot', color='Black')
+    plt.show()
+    
+funct ()
+# Function ends #
