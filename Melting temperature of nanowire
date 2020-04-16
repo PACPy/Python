@@ -1,0 +1,44 @@
+###----------Melting Temperature of Nanowires------------###
+# formula used for calculating the melting temperature is taken from the paper "W. H. Qi; Size effect on melting temperature of nanosolid, Physica B:Condensed matter, 2005, 368;46"
+
+import numpy as py
+import matplotlib.pyplot as plt
+
+# Introduction #
+
+print ('''Hello user. This code is built to calculate the melting temperature of Nanowires''')
+
+# Atomic Diameter of the atoms in the material#
+
+d = float (input("Atomic Diameter of the atom is="))
+
+# Bulk melting temperature of the material#
+
+T = float (input("Enter value of bulk melting point="))
+
+# length of the material #
+
+l = float (input ("Enter the value of desired length of the nanowire= "))
+L = py.arange(1, l + 0.1, 0.1)
+Length = L * d
+
+# Function begins #
+
+def funct():
+    # formula as taken from the paper #
+    D=((8 * d) / (2 * 3 * L))
+    R=(1 - D)    
+    t=(T * R) 
+    print (t)
+    
+    # Plotting #
+    
+    plt.title ('''Effect of size on Melting temperature 
+       of Nanowire''', fontsize='18')
+    plt.xlabel("l (nm)", fontsize='14')
+    plt.ylabel("Melting Temperature (Kelvin)", fontsize='14')
+    plt.plot(L, t, linestyle='dashdot', color='Black')
+    plt.show()
+    
+funct ()
+# Function ends #
